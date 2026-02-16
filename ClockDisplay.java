@@ -8,7 +8,10 @@
  * The clock display receives "ticks" (via the timeTick method) every minute
  * and reacts by incrementing the display. This is done in the usual clock
  * fashion: the hour increments when the minutes roll over to zero.
- * 
+ *
+ *TLDR: store american time, display american time 
+ *
+ *
  * @author Michael Kölling and David J. Barnes
  * @version 2016.02.29
  */
