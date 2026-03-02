@@ -22,6 +22,7 @@ public class ClockDisplay
     private NumberDisplay minutes;
     private String displayString;    // simulates the actual display
     
+    
     /**
      * Constructor for ClockDisplay objects. This constructor 
      * creates a new clock set at 00:00.
@@ -82,7 +83,29 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+        String tempDisplayString = "";
+        String merridianString = "";
+        int tempHourValue = hours.getValue();
+        if (tempHourValue>12)
+        {
+            tempHourValue = tempHourValue - 12;
+        }
+        if (tempHourValue == 0)
+        {
+            tempHourValue = 12;
+        }
+        if (hours.getValue()<12)
+        {
+            merridianString = "A.M.";
+        }
+        else
+        {
+            merridianString = "P.M.";
+        }
+        tempDisplayString += tempHourValue;
+        tempDisplayString += ":";
+        tempDisplayString += minutes.getDisplayValue();
+        tempDisplayString += merridianString;
+        displayString = tempDisplayString;
     }
 }
