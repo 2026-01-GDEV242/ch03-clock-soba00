@@ -77,7 +77,7 @@ public class ClockDisplay
      */
     public void setTime(int hour, int minute)
     {
-        hours.setValue(hour - 12);
+        hours.setValue(hour % 12);
         minutes.setValue(minute);
         if(hour < 12) // set merridian based of given time
         {
