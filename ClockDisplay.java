@@ -13,8 +13,8 @@
  * TLDR: Store Eurotime, Display American time
  *
  *
- * @author Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author Federico Cadavid Rojas
+ * @version 2026.03.02
  */
 public class ClockDisplay
 {
