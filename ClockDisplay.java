@@ -12,7 +12,7 @@
  *
  *
  * @author Federico Cadavid Rojas
- * @version 2026.03.03
+ * @version 2026.03.03 
  */
 public class ClockDisplay
 {
