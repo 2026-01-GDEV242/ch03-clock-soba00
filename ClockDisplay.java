@@ -19,7 +19,7 @@ public class ClockDisplay
     private NumberDisplay hours;
     private NumberDisplay minutes;
     private String displayString;    // simulates the actual display
-    private String meridianString;
+    private String merridianString;
     
     /**
      * Constructor for ClockDisplay objects. This constructor 
@@ -29,7 +29,7 @@ public class ClockDisplay
     {
         hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
-        meridianString = "A.M.";
+        merridianString = "A.M.";
         updateDisplay();
     }
 
@@ -42,7 +42,7 @@ public class ClockDisplay
     {
         hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
-        meridianString = "A.M.";
+        merridianString = "A.M.";
         setTime(hour, minute);
     }
 
@@ -58,13 +58,13 @@ public class ClockDisplay
             if(hours.getValue() == 0) {
                 
                 //allows us to keep track of AM/PM cycle when minutes tick houts from 11 to 0
-                if(meridianString.equals("A.M.")) 
+                if(merridianString.equals("A.M.")) 
                 {
-                    meridianString = "P.M.";
+                    merridianString = "P.M.";
                 }
                 else 
                 {
-                    meridianString = "A.M.";
+                    merridianString = "A.M.";
                 }
             }
         }
@@ -81,11 +81,11 @@ public class ClockDisplay
         minutes.setValue(minute);
         if(hour < 12) // set merridian based of given time
         {
-            meridianString = "A.M.";
+            merridianString = "A.M.";
         }
         else 
         {
-            meridianString = "P.M.";
+            merridianString = "P.M.";
         }
         updateDisplay();
     }
@@ -104,7 +104,12 @@ public class ClockDisplay
     private void updateDisplay()
     {
         int tempHourValue = hours.getValue();
+        if (tempHourValue == 0)
+        {
+            tempHourValue = 12;
+        }
         displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+                        minutes.getDisplayValue()+ " " +
+                        merridianString;
     }
 }
