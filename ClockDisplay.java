@@ -11,8 +11,8 @@
  *TLDR: store american time, display american time 
  *
  *
- * @author Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author Federico Cadavid Rojas
+ * @version 2026.03.03
  */
 public class ClockDisplay
 {
