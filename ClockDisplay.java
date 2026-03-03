@@ -29,7 +29,7 @@ public class ClockDisplay
     {
         hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
-        meridianString = "AM";
+        meridianString = "A.M.";
         updateDisplay();
     }
 
@@ -42,7 +42,7 @@ public class ClockDisplay
     {
         hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
-        meridianString = "AM";
+        meridianString = "A.M.";
         setTime(hour, minute);
     }
 
@@ -55,6 +55,16 @@ public class ClockDisplay
         minutes.increment();
         if(minutes.getValue() == 0) {  // it just rolled over!
             hours.increment();
+            if(hours.getValue() == 0) {
+                
+                //allows us to keep track of AM/PM cycle when minutes tick houts from 11 to 0
+                if(meridianString.equals("A.M.")) {
+                    meridianString = "P.M.";
+                }
+                else {
+                    meridianString = "A.M.";
+                }
+            }
         }
         updateDisplay();
     }
