@@ -108,7 +108,7 @@ public class ClockDisplay
         {
             tempHourValue = 12;
         }
-        displayString = hours.getDisplayValue() + ":" + 
+        displayString = tempHourValue + ":" + 
                         minutes.getDisplayValue()+ " " +
                         merridianString;
     }
