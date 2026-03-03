@@ -58,10 +58,12 @@ public class ClockDisplay
             if(hours.getValue() == 0) {
                 
                 //allows us to keep track of AM/PM cycle when minutes tick houts from 11 to 0
-                if(meridianString.equals("A.M.")) {
+                if(meridianString.equals("A.M.")) 
+                {
                     meridianString = "P.M.";
                 }
-                else {
+                else 
+                {
                     meridianString = "A.M.";
                 }
             }
@@ -75,8 +77,16 @@ public class ClockDisplay
      */
     public void setTime(int hour, int minute)
     {
-        hours.setValue(hour);
+        hours.setValue(hour - 12);
         minutes.setValue(minute);
+        if(hour < 12) // set merridian based of given time
+        {
+            meridianString = "A.M.";
+        }
+        else 
+        {
+            meridianString = "P.M.";
+        }
         updateDisplay();
     }
 
@@ -93,7 +103,7 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        
+        int tempHourValue = hours.getValue();
         displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue();
     }
